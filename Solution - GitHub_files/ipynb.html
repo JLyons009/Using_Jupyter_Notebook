@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0494)https://render.githubusercontent.com/view/ipynb?commit=9573dd12149a308ba22022bc1b7d36e1c9a12ccb&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f646174617175657374696f2f736f6c7574696f6e732f393537336464313231343961333038626132323032326263316237643336653163396131326363622f4d697373696f6e323037536f6c7574696f6e732e6970796e62&nwo=dataquestio%2Fsolutions&path=Mission207Solutions.ipynb&repository_id=48892529&repository_type=Repository#d34f6288-20ee-4831-bd70-3530d6b03303 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Render</title>
+  <meta name="referrer" content="never">
+    <script async="" src="./analytics.js.download"></script><script src="./ipynb-15a369bf3048f011a06b9815a1f36875.js.download"></script><link rel="stylesheet" href="./ipynb-c47447281494c3bc673c27fa8fa55be4.css">
+
+
+</head>
+<body class="" data-render-url="https://render.githubusercontent.com" data-github-hostname="github.com" style="">
+  <div class="render-shell js-render-shell" data-document-nwo="dataquestio/solutions" data-document-commit="9573dd12149a308ba22022bc1b7d36e1c9a12ccb" data-document-path="Mission207Solutions.ipynb" data-file="https://github-render.s3.amazonaws.com/prod/17e7a537f452abf79f57c8de4d92d082-render.html?AWSAccessKeyId=AKIAJILR36AMCOMBK3MQ&amp;Signature=SeCbsDWhYbp6fB%2B7LYqvyRLTejk%3D&amp;Expires=1505153801" data-meta="https://github-render.s3.amazonaws.com/prod/17e7a537f452abf79f57c8de4d92d082-meta.json?AWSAccessKeyId=AKIAJILR36AMCOMBK3MQ&amp;Signature=zGI/NRLKVUNrTplPH%2BuRMMOn1q8%3D&amp;Expires=1505153801">
+    
+
+<div class="render-info">
+  <div class="js-viewer-health render-health is-viewer-good">
+    <span class="symbol">⊖</span>
+    <span class="js-message message">Everything running smoothly!</span>
+  </div>
+</div>
+
+<div id="notebook" class="js-html">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Birth Dates In The United States<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=9573dd12149a308ba22022bc1b7d36e1c9a12ccb&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f646174617175657374696f2f736f6c7574696f6e732f393537336464313231343961333038626132323032326263316237643336653163396131326363622f4d697373696f6e323037536f6c7574696f6e732e6970796e62&amp;nwo=dataquestio%2Fsolutions&amp;path=Mission207Solutions.ipynb&amp;repository_id=48892529&amp;repository_type=Repository#Birth-Dates-In-The-United-States">¶</a>
+</h2>
+<p>The raw data behind the story <strong>Some People Are Too Superstitious To Have A Baby On Friday The 13th</strong>, which you can read <a href="http://fivethirtyeight.com/features/some-people-are-too-superstitious-to-have-a-baby-on-friday-the-13th/">here</a>.</p>
+<p>We'll be working with the data set from the Centers for Disease Control and Prevention's National National Center for Health Statistics.  The data set has the following structure:</p>
+<ul>
+<li>
+<code>year</code> - Year</li>
+<li>
+<code>month</code> - Month</li>
+<li>
+<code>date_of_month</code> - Day number of the month</li>
+<li>
+<code>day_of_week</code> - Day of week, where 1 is Monday and 7 is Sunday</li>
+<li>
+<code>births</code> - Number of births</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"births.csv"</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lines_list</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">lines_list</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_no_header</span> <span class="o">=</span> <span class="n">lines_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">lines_list</span><span class="p">)]</span>
+<span class="n">days_counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data_no_header</span><span class="p">:</span>
+    <span class="n">split_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+    <span class="n">day_of_week</span> <span class="o">=</span> <span class="n">split_line</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">num_births</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">day_of_week</span> <span class="ow">in</span> <span class="n">days_counts</span><span class="p">:</span>
+        <span class="n">days_counts</span><span class="p">[</span><span class="n">day_of_week</span><span class="p">]</span> <span class="o">=</span> <span class="n">days_counts</span><span class="p">[</span><span class="n">day_of_week</span><span class="p">]</span> <span class="o">+</span> <span class="n">num_births</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">days_counts</span><span class="p">[</span><span class="n">day_of_week</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_births</span>
+
+<span class="n">days_counts</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+ 
+
+</div>
+
+  </div>
+
+  
+
+
+
+</body></html>
